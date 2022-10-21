@@ -9,7 +9,9 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +20,7 @@ import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+@ExtendWith(MockitoExtension.class)
 public class StatisticsTestSuite {
     @Mock
     private Statistics statisticsMock;
@@ -71,7 +74,7 @@ public class StatisticsTestSuite {
     void testAveragefor1000Posts() {
         //Given
         StatisticsRegister register = new StatisticsRegister();
-        Statistics statisticsMock = mock(Statistics.class);
+//        Statistics statisticsMock = mock(Statistics.class);
         List<String> resultUsers = generateListOfNUsers(100);
         int Comments = 500;
         int Posts = 1000;
@@ -96,7 +99,7 @@ public class StatisticsTestSuite {
     void testAveragefor0Comments() {
         //Given
         StatisticsRegister register = new StatisticsRegister();
-        Statistics statisticsMock = mock(Statistics.class);
+//        Statistics statisticsMock = mock(Statistics.class);
         List<String> resultUsers = generateListOfNUsers(10);
         int Comments = 0;
         int Posts = 1;
@@ -121,7 +124,7 @@ public class StatisticsTestSuite {
     void testAverageforMoreCommentsThanPosts() {
         //Given
         StatisticsRegister register = new StatisticsRegister();
-        Statistics statisticsMock = mock(Statistics.class);
+//        Statistics statisticsMock = mock(Statistics.class);
         List<String> resultUsers = generateListOfNUsers(10);
         int Comments = 100;
         int Posts = 10;
@@ -146,7 +149,7 @@ public class StatisticsTestSuite {
     void testAverageforMorePostsThanComments() {
         //Given
         StatisticsRegister register = new StatisticsRegister();
-        Statistics statisticsMock = mock(Statistics.class);
+//        Statistics statisticsMock = mock(Statistics.class);
         List<String> resultUsers = generateListOfNUsers(10);
         int Comments = 10;
         int Posts = 100;
@@ -171,7 +174,7 @@ public class StatisticsTestSuite {
     void testAveragefor0Users() {
         //Given
         StatisticsRegister register = new StatisticsRegister();
-        Statistics statisticsMock = mock(Statistics.class);
+//        Statistics statisticsMock = mock(Statistics.class);
         List<String> resultUsers = generateListOfNUsers(0);
         int Comments = 0;
         int Posts = 0;
@@ -196,7 +199,7 @@ public class StatisticsTestSuite {
     void testAveragefor100Users() {
         //Given
         StatisticsRegister register = new StatisticsRegister();
-        Statistics statisticsMock = mock(Statistics.class);
+//        Statistics statisticsMock = mock(Statistics.class);
         List<String> resultUsers = generateListOfNUsers(100);
         int Comments = 0;
         int Posts = 0;
