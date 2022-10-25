@@ -48,5 +48,6 @@ public final class ForumUser {
                 ", numberOfPosts=" + numberOfPosts +
                 '}';
     }
+
 }
 
