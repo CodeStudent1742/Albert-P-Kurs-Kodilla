@@ -12,7 +12,7 @@ public final class Country {
 
     }
 
-    public Country(String name, double peopleQuantity) {
+    public Country(String name, BigDecimal peopleQuantity) {
         this.name = name;
         this.peopleQuantity = peopleQuantity;
     }
