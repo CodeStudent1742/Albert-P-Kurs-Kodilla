@@ -5,16 +5,12 @@ import com.kodilla.stream.portfolio.Task;
 import com.kodilla.stream.portfolio.TaskList;
 import com.kodilla.stream.portfolio.User;
 import org.junit.jupiter.api.Test;
-
-import java.time.Duration;
 import java.time.LocalDate;
-import java.time.Period;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.OptionalDouble;
-import java.util.stream.IntStream;
 
-import static java.time.temporal.ChronoUnit.DAYS;
 import static java.util.stream.Collectors.toList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -164,7 +160,7 @@ public class BoardTestSuite {
                 .filter(inProgressTasks::contains)
                 .flatMap(t -> t.getTasks().stream())
                 .map(Task::getCreated)
-                .mapToDouble(t -> Period.between(t, LocalDate.now()).getDays())
+                .mapToDouble(t -> ChronoUnit.DAYS.between(t, LocalDate.now()))
                 .average();
         double result = averageDuration.getAsDouble();
 
