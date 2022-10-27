@@ -1,4 +1,4 @@
-package com.kodilla.testing.snake.fields;
+package com.kodilla.snake.fields;
 
 public class None implements Field {
 

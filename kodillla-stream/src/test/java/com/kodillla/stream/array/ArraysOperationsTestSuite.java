@@ -8,15 +8,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class ArraysOperationsTestSuite {
 
     @Test
-    void testGetAverage(){
+    void testGetAverage() {
         //Given
         int[] numbers = new int[20];
-        for(int i=0; i<20; i++) {
+        for (int i = 0; i < 20; i++) {
             numbers[i] = i + 1;
         }
+//        int[] numbers = new int[]{2, 10, 11, 12};
         //When
         double received = ArrayOperations.getAverage(numbers);
         //Then
-        assertEquals(10.5,received);
+        assertEquals(10.5, received);
+//        assertEquals(8.75, received);
     }
 }

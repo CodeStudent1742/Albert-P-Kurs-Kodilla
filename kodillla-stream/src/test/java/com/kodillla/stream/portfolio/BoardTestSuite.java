@@ -6,7 +6,9 @@ import com.kodilla.stream.portfolio.TaskList;
 import com.kodilla.stream.portfolio.User;
 import org.junit.jupiter.api.Test;
 
+import java.time.Duration;
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.OptionalDouble;
@@ -27,7 +29,8 @@ public class BoardTestSuite {
         //Then
         assertEquals(3, project.getTaskLists().size());
     }
-        private Board prepareTestData() {
+
+    private Board prepareTestData() {
         //users
         User user1 = new User("developer1", "John Smith");
         User user2 = new User("projectmanager1", "Nina White");
@@ -91,6 +94,7 @@ public class BoardTestSuite {
         project.addTaskList(taskListDone);
         return project;
     }
+
     @Test
     void testAddTaskListFindUsersTasks() {
         //Given
@@ -108,6 +112,7 @@ public class BoardTestSuite {
         assertEquals(user, tasks.get(0).getAssignedUser());
         assertEquals(user, tasks.get(1).getAssignedUser());
     }
+
     @Test
     void testAddTaskListFindOutdatedTasks() {
         //Given
@@ -127,6 +132,7 @@ public class BoardTestSuite {
         assertEquals(1, tasks.size());
         assertEquals("HQLs for analysis", tasks.get(0).getTitle());
     }
+
     @Test
     void testAddTaskListFindLongTasks() {
         //Given
@@ -145,21 +151,23 @@ public class BoardTestSuite {
         //Then
         assertEquals(2, longTasks);
     }
+
     @Test
-    void testAddTaskListAverageWorkingOnTask(){
+    void testAddTaskListAverageWorkingOnTask() {
         //Given
         Board project = prepareTestData();
 
         //When
         List<TaskList> inProgressTasks = new ArrayList<>();
         inProgressTasks.add(new TaskList("In progress"));
-        OptionalDouble averageTime = project.getTaskLists().stream()
+        OptionalDouble averageDuration = project.getTaskLists().stream()
                 .filter(inProgressTasks::contains)
                 .flatMap(t -> t.getTasks().stream())
                 .map(Task::getCreated)
-                .mapToDouble(t->LocalDate.now().getDayOfMonth() - t.getDayOfMonth())
+                .mapToDouble(t -> Period.between(t, LocalDate.now()).getDays())
                 .average();
-        double result = averageTime.getAsDouble();
+        double result = averageDuration.getAsDouble();
+
         //Then
         assertEquals(10, result);
     }

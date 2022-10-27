@@ -1,4 +1,4 @@
-package com.kodilla.testing.snake;
+package com.kodilla.snake;
 
 public class Move {
     int colSource;

@@ -1,4 +1,4 @@
-package com.kodilla.testing.snake.fields;
+package com.kodilla.snake.fields;
 
 public class Apple implements Field {
     private int appleX;
