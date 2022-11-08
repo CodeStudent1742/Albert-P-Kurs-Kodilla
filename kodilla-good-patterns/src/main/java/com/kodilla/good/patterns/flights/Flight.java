@@ -3,19 +3,19 @@ package com.kodilla.good.patterns.flights;
 import java.util.Objects;
 
 public class Flight {
-    private String departurePort;
-    private String arrivalPort;
+    private Destination departurePort;
+    private Destination arrivalPort;
 
-    public Flight(String departurePort, String arrivalPort){
+    public Flight(Destination departurePort, Destination arrivalPort){
         this.departurePort = departurePort;
         this.arrivalPort = arrivalPort;
     }
 
-    public String getDeparturePort() {
+    public Destination getDeparturePort() {
         return departurePort;
     }
 
-    public String getArrivalPort() {
+    public Destination getArrivalPort() {
         return arrivalPort;
     }
 

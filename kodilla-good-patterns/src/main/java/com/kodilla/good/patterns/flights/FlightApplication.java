@@ -1,18 +1,24 @@
 package com.kodilla.good.patterns.flights;
 
+import com.kodilla.good.patterns.flights.ui.Print;
+
+import java.util.List;
+
 public class FlightApplication {
 
     public static void main(String[] args) {
+        FlightBase flightBase = new FlightBase();
+        FlightHandling flightHandling = new FlightHandling(flightBase.getFlights());
 
-        FlightBase flightbase = new FlightBase();
-
-        flightbase.flightFromPlace("Gdansk",true);
+        List<Flight> fromGdansk = flightHandling.flightFromPlace(Destination.GDANSK);
+        Print.print(fromGdansk);
         System.out.println("");
-        flightbase.flightToPlace("Wroclaw",true);
+        List<Flight> toWroclaw = flightHandling.flightToPlace(Destination.WROCLAW);
+        Print.print(toWroclaw);
         System.out.println("");
-        flightbase.flightFromTo("Gdansk","Wroclaw");
+        flightHandling.flightFromTo(Destination.GDANSK, Destination.WROCLAW);
         System.out.println("");
-        flightbase.flightFromTo("Krakow","Warsaw");
+        flightHandling.flightFromTo(Destination.WARSAW, Destination.POZNAN);
     }
 
 }
