@@ -6,11 +6,11 @@ public class Checkers {
     private final String playerOne;
     private final String playerTwo;
 
-    private Checkers(Board board, String playerOne, String playerTwo) {  // [1]
-        this.board = board;                                               // [2]
-        this.playerOne = playerOne;                                       // [3]
-        this.playerTwo = playerTwo;                                       // [4]
-    }                                                                    // [5]
+    private Checkers(Board board, String playerOne, String playerTwo) {
+        this.board = board;
+        this.playerOne = playerOne;
+        this.playerTwo = playerTwo;
+    }
 
     public Board getBoard() {
         return board;
