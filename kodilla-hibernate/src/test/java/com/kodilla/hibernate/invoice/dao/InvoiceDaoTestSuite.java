@@ -33,11 +33,12 @@ public class InvoiceDaoTestSuite {
         Product product3 = new Product("product3");
 
         Item item1 = new Item(new BigDecimal(111), 1, new BigDecimal(111));
-        item1.getProducts().add(product1);
         Item item2 = new Item(new BigDecimal(222), 2, new BigDecimal(444));
-        item2.getProducts().add(product2);
         Item item3 = new Item(new BigDecimal(333), 3, new BigDecimal(999));
-        item3.getProducts().add(product3);
+
+        product1.getItems().add(item1);
+        product2.getItems().add(item2);
+        product3.getItems().add(item3);
 //        itemDao.saveAll(Arrays.asList(item1,item2,item3));
         Invoice invoice = new Invoice("20221101");
 

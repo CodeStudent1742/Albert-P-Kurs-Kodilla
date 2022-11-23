@@ -1,18 +1,16 @@
 package com.kodilla.hibernate.invoice;
 
 import com.sun.istack.NotNull;
-
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
+
 
 @Entity
 @Table(name = "ITEM")
 public class Item {
 
     private int id;
-    private List<Product> products = new ArrayList<>();
+    private Product product;
     private BigDecimal price;
     private int quantity;
     private BigDecimal value;
@@ -36,14 +34,10 @@ public class Item {
         return id;
     }
 
-    @OneToMany(
-            targetEntity = Product.class,
-            mappedBy = "item",
-            cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER
-    )
-    public List<Product> getProducts() {
-        return products;
+    @ManyToOne
+    @JoinColumn(name = "PRODUCT_ID")
+    public Product getProduct() {
+        return product;
     }
 
     @NotNull
@@ -74,8 +68,8 @@ public class Item {
         this.id = id;
     }
 
-    public void setProducts(List<Product> product) {
-        this.products = product;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
     public void setPrice(BigDecimal price) {
