@@ -6,10 +6,22 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@NamedQuery(
-        name = "Company.retrieveCompanyByTheirFirstThreeNameLetters",
-        query = "FROM Company WHERE name LIKE concat(:NAMEPART,'%' )"
-)
+@NamedQueries({
+        @NamedQuery(
+                name = "Company.retrieveCompanyByTheirFirstThreeNameLetters",
+                query = "FROM Company WHERE name LIKE concat(:NAMEPART,'%' )"
+
+        ),
+
+        @NamedQuery(
+                name = "Company.findCompanyByFragment",
+                query = "FROM Company WHERE name LIKE concat('%',:NAMEPART,'%' )"
+
+        )
+})
+
+
+
 @Entity
 @Table(name = "COMPANIES")
 public class Company {

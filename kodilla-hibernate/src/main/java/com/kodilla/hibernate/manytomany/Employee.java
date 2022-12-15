@@ -6,10 +6,29 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@NamedQuery(
-        name = "Employee.retrieveEmployeeByName",
-        query = "FROM Employee WHERE lastname = :LASTNAME"
-)
+@NamedQueries({
+        @NamedQuery(
+                name = "Employee.retrieveEmployeeByName",
+                query = "FROM Employee WHERE lastname = :LASTNAME"
+
+        ),
+
+        @NamedQuery(
+                name = "Employee.findEmployeeByFragment",
+                query = "FROM Employee WHERE lastname LIKE concat('%',:NAMEPART,'%' )"
+        )
+})
+
+
+//@NamedNativeQuery(
+//        name = "Employee.retrieveEmployeeByName",
+//        query = "FROM Employee WHERE lastname = :LASTNAME"
+//)
+//@NamedNativeQuery(
+//        name = "Company.findByFragment",
+//        query = "FROM Employee WHERE lastname LIKE concat('%',:NAMEPART,'%' )"
+//)
+
 @Entity
 @Table(name = "EMPLOYEES")
 public class Employee {
@@ -46,6 +65,7 @@ public class Employee {
     public String getLastname() {
         return lastname;
     }
+
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "JOIN_COMPANY_EMPLOYEE",
