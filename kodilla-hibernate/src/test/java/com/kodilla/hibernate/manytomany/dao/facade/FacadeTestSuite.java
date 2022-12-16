@@ -4,8 +4,7 @@ import com.kodilla.hibernate.manytomany.Company;
 import com.kodilla.hibernate.manytomany.Employee;
 import com.kodilla.hibernate.manytomany.dao.CompanyDao;
 import com.kodilla.hibernate.manytomany.dao.EmployeeDao;
-import com.kodilla.hibernate.manytomany.facade.CompanyFacade;
-import com.kodilla.hibernate.manytomany.facade.EmployeeFacade;
+import com.kodilla.hibernate.manytomany.facade.CompanyEmployeeFacade;
 import com.kodilla.hibernate.manytomany.facade.NoDataException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -24,10 +23,10 @@ public class FacadeTestSuite {
     private EmployeeDao employeeDao;
 
     @Autowired
-    private CompanyFacade companyFacade;
+    private CompanyEmployeeFacade companyFacade;
 
     @Autowired
-    private EmployeeFacade employeeFacade;
+    private CompanyEmployeeFacade employeeFacade;
 
     @Test
     public void testCompanyFacadeSearchByFragment() throws NoDataException {

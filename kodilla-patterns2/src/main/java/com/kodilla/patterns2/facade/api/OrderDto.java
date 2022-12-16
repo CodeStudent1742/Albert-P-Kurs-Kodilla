@@ -4,6 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public final class OrderDto {
+    @Override
+    public String toString() {
+        return "OrderDto{" +
+                "items=" + items +
+                '}';
+    }
+
     private final List<ItemDto> items = new ArrayList<>();
 
     public void addItem(final ItemDto item) { items.add(item); }
@@ -11,4 +18,6 @@ public final class OrderDto {
     public List<ItemDto> getItems() {
         return items;
     }
+
 }
+

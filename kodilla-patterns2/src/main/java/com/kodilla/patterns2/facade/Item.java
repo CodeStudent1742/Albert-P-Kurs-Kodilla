@@ -13,4 +13,11 @@ public class Item {
 
     public double getQty() { return qty; }
 
+    @Override
+    public String toString() {
+        return "Item{" +
+                "productId=" + productId +
+                ", qty=" + qty +
+                '}';
+    }
 }

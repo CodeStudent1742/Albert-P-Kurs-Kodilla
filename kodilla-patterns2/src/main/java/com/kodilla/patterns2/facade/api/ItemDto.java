@@ -4,7 +4,7 @@ public final class ItemDto {
     private final Long productId;
     private final double quantity;
 
-    public ItemDto(final Long productId, final double quantity) {
+    public ItemDto( Long productId,  double quantity) {
         this.productId = productId;
         this.quantity = quantity;
     }
@@ -18,4 +18,11 @@ public final class ItemDto {
         return quantity;
     }
 
+    @Override
+    public String toString() {
+        return "ItemDto{" +
+                "productId=" + productId +
+                ", quantity=" + quantity +
+                '}';
+    }
 }
