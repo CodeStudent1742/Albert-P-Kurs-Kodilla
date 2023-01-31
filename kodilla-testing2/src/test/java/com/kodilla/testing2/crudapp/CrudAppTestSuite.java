@@ -115,7 +115,8 @@ public class CrudAppTestSuite {
         return result;
     }
     private void deleteTestTask(String taskName) throws InterruptedException {
-        driver.get(BASE_URL);
+        driver.switchTo().alert().accept();
+//        driver.get(BASE_URL);
         driver.navigate().refresh();
 
         while(!driver.findElement(By.xpath("//select[1]")).isDisplayed());
