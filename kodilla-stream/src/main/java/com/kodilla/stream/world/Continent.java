@@ -6,11 +6,6 @@ import java.util.Set;
 
 public class Continent {
     private final Set<Country> continent = new HashSet<>();
-//    private final String continentName;
-
-//    public Continent(String continentName) {
-//        this.continentName = continentName;
-//    }
 
     public void addCountry(Country country) {
         continent.add(country);
@@ -20,20 +15,5 @@ public class Continent {
         return continent;
     }
 
-//    public String getContinentName() {
-//        return continentName;
-//    }
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//        Continent continent = (Continent) o;
-//        return Objects.equals(continentName, continent.continentName);
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(continentName);
-//    }
 }

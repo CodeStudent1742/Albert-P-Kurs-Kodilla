@@ -7,11 +7,8 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
 import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -69,9 +66,6 @@ public class CrudAppTestSuite {
                     Select select = new Select(selectElement);
                     select.selectByIndex(2);
 
-//                    WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
-//                    webDriverWait.until(ExpectedConditions.elementToBeSelected(selectElement));
-
                     WebElement selectElement2 = theForm.findElement(By.xpath(".//select[2]"));
                     Select select2 = new Select(selectElement2);
                     select2.selectByIndex(0);
@@ -90,7 +84,6 @@ public class CrudAppTestSuite {
         driverTrello.get(TRELLO_URL);
 
         driverTrello.findElement(By.id("user")).sendKeys("otherstaff1742@gmail.com");
-//        driverTrello.findElement(By.id("password")).sendKeys("twoje_haslo");
         WebElement el = driverTrello.findElement(By.id("login"));
         el.submit();
 
@@ -116,7 +109,6 @@ public class CrudAppTestSuite {
     }
     private void deleteTestTask(String taskName) throws InterruptedException {
         driver.switchTo().alert().accept();
-//        driver.get(BASE_URL);
         driver.navigate().refresh();
 
         while(!driver.findElement(By.xpath("//select[1]")).isDisplayed());

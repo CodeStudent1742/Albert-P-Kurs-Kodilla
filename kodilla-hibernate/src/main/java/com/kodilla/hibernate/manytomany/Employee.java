@@ -19,16 +19,6 @@ import java.util.List;
         )
 })
 
-
-//@NamedNativeQuery(
-//        name = "Employee.retrieveEmployeeByName",
-//        query = "FROM Employee WHERE lastname = :LASTNAME"
-//)
-//@NamedNativeQuery(
-//        name = "Company.findByFragment",
-//        query = "FROM Employee WHERE lastname LIKE concat('%',:NAMEPART,'%' )"
-//)
-
 @Entity
 @Table(name = "EMPLOYEES")
 public class Employee {
